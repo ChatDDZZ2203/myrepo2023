@@ -95,16 +95,16 @@ def change_main_username(m):
 
 @bot.message_handler(commands=['push_to_bin'])
 def pusher_to_bin(m):
+  for i in range(int(m.text[13:])):
     try:
-        for i in range(int(m.text[13:])):
-            image = results_main.pop()
-            bot.send_message(m.chat.id,
-                             text=f"Pushing {i}...")
-            bot.send_photo(m.chat.id,
-                           photo=image['link'],
-                           caption=image['prompt'],
-                           parse_mode="Markdown")
-            the_bin.append(image)
+        image = results_main.pop()
+        bot.send_message(m.chat.id,
+                         text=f"Pushing {i}...")
+        bot.send_photo(m.chat.id,
+                       photo=image['link'],
+                       caption=image['prompt'],
+                       parse_mode="Markdown")
+        the_bin.append(image)  
             
     except Exception as e:
         bot.send_message(m.chat.id, f"Error:\n{str(e)}")
