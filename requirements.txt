@@ -1,0 +1,6 @@
+flask
+pytelegrambotapi
+pyshorteners
+requests
+bs4
+
